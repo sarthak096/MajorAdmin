@@ -124,8 +124,9 @@ class OrdersViewController: BaseViewController, UITableViewDelegate, UITableView
                 let userDict = DataSnapshot.value as! [String: Any]
                 let qdesc = userDict["Description"] as! String
                 let qprice = userDict["Price"] as! String
-                let quanti = userDict["Quantity"] as! String
-                var text = "Description: " + qdesc + "\n" + "Price: " + qprice + "\n" + "Quantity: " + quanti
+                let quanti = userDict["Quantity"] as! Int
+                var newquanti = "\(quanti)"
+                let text = "Description: " + qdesc + "\n" + "Price: " + qprice + "\n" + "Quantity: " + newquanti
                 cell.detailTextLabel?.numberOfLines = 5
                 cell.detailTextLabel?.text = text
             })

@@ -68,13 +68,13 @@ class ItemInfo:UIViewController,UITextFieldDelegate{
             let userDict = DataSnapshot.value as! [String: Any]
             let desc = userDict["Description"] as! String
             let price = userDict["Price"] as! String
-            let quantity = userDict["Quantity"] as! String
+            let quantity = userDict["Quantity"] as! Int
             self.ItemCode.text = GlobalVariables.sharedManager.itemCode
-            self.Quantity.text = quantity
+            self.Quantity.text = "\(quantity)"
             self.Description.text = desc
             self.Price.text = price
             GlobalVariables.sharedManager.pint = Int((price as NSString).integerValue)
-            GlobalVariables.sharedManager.qint = Int((quantity as NSString).integerValue)
+            GlobalVariables.sharedManager.qint = quantity
             self.priceStepper.value = Double(GlobalVariables.sharedManager.pint)
             self.quantityStepper.value = Double(GlobalVariables.sharedManager.qint)
         })
@@ -91,13 +91,13 @@ class ItemInfo:UIViewController,UITextFieldDelegate{
             let userDict = DataSnapshot.value as! [String: Any]
             let desc = userDict["Description"] as! String
             let price = userDict["Price"] as! String
-            let quantity = userDict["Quantity"] as! String
+            let quantity = userDict["Quantity"] as! Int
             self.ItemCode.text = GlobalVariables.sharedManager.itemCode
-            self.Quantity.text = quantity
+            self.Quantity.text = "\(quantity)"
             self.Description.text = desc
             self.Price.text = price
             GlobalVariables.sharedManager.pint = Int((price as NSString).integerValue)
-            GlobalVariables.sharedManager.qint = Int((quantity as NSString).integerValue)
+            GlobalVariables.sharedManager.qint = quantity
             self.priceStepper.value = Double(GlobalVariables.sharedManager.pint)
             self.quantityStepper.value = Double(GlobalVariables.sharedManager.qint)
         })
@@ -133,7 +133,7 @@ class ItemInfo:UIViewController,UITextFieldDelegate{
             let temp = GlobalVariables.sharedManager.itemCode
             let desc = Description.text
             let price = Price.text
-            let quantity = Quantity.text
+            let quantity = Int(Quantity.text!)
             ref.child("Database").child(temp).child("Description").setValue(desc)
             ref.child("Database").child(temp).child("Price").setValue(price)
             ref.child("Database").child(temp).child("Quantity").setValue(quantity)

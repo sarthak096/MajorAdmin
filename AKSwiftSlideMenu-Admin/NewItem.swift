@@ -56,7 +56,7 @@ class NewItem : UIViewController,UITextFieldDelegate{
         }
         else{
             ref = Database.database().reference()
-            let data = ["Description":itemDesc.text! as String,"Price":itemPrice.text! as String,"Quantity":itemQuantity.text! as String]
+            let data = ["Description":itemDesc.text! as String,"Price":itemPrice.text! as String,"Quantity":Int(itemQuantity.text! as String)] as [String : Any]
             ref.child("Database").child(GlobalVariables.sharedManager.barcode).setValue(data)
             self.ref.child("Database").observeSingleEvent(of: .value, with: { (DataSnapshot) in
                 GlobalVariables.sharedManager.orderscount = Int(DataSnapshot.childrenCount)
