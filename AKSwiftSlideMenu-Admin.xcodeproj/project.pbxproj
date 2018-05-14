@@ -22,6 +22,7 @@
 		080BC37C20A1B9FF0028283D /* NewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080BC37A20A1B9FE0028283D /* NewItem.swift */; };
 		080BC37D20A1B9FF0028283D /* NewItemScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080BC37B20A1B9FF0028283D /* NewItemScan.swift */; };
 		0857EAD420A34EB30009912F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0857EAD320A34EB30009912F /* ProfileViewController.swift */; };
+		086C340420AA021300912EA8 /* Payverify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086C340220AA00B100912EA8 /* Payverify.swift */; };
 		088485E920A36DA60040E743 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088485E820A36DA60040E743 /* ItemInfo.swift */; };
 		753A55C31BB073E900254F27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A55C21BB073E900254F27 /* AppDelegate.swift */; };
 		753A55C81BB073E900254F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753A55C61BB073E900254F27 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		080BC37A20A1B9FE0028283D /* NewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItem.swift; sourceTree = "<group>"; };
 		080BC37B20A1B9FF0028283D /* NewItemScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemScan.swift; sourceTree = "<group>"; };
 		0857EAD320A34EB30009912F /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		086C340220AA00B100912EA8 /* Payverify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payverify.swift; sourceTree = "<group>"; };
 		088485E820A36DA60040E743 /* ItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfo.swift; sourceTree = "<group>"; };
 		5AFDB2F41ABC1453CDBF8540 /* Pods-AKSwiftSlideMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AKSwiftSlideMenu.release.xcconfig"; path = "Pods/Target Support Files/Pods-AKSwiftSlideMenu/Pods-AKSwiftSlideMenu.release.xcconfig"; sourceTree = "<group>"; };
 		753A55BD1BB073E900254F27 /* AKSwiftSlideMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKSwiftSlideMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +115,7 @@
 				080BC37020A155210028283D /* LaunchScreen.storyboard */,
 				080BC36E20A0B5000028283D /* Images.xcassets */,
 				753A55C01BB073E900254F27 /* Supporting Files */,
+				086C340220AA00B100912EA8 /* Payverify.swift */,
 			);
 			path = "AKSwiftSlideMenu-Admin";
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086C340420AA021300912EA8 /* Payverify.swift in Sources */,
 				080BC368209EA78B0028283D /* LoginViewController.swift in Sources */,
 				080BC37C20A1B9FF0028283D /* NewItem.swift in Sources */,
 				080BC37920A1B3F90028283D /* MainViewController.swift in Sources */,

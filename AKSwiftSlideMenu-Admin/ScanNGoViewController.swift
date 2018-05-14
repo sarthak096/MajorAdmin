@@ -21,6 +21,7 @@ class ScanNGoViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
     var captureDevice: AVCaptureDevice?
+    var Scanner: Payverify?
     
     //Handles PinchZoom
     @IBAction func zoomPinch(_ sender: UIPinchGestureRecognizer) {
@@ -53,6 +54,7 @@ class ScanNGoViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let input: AnyObject!
         
         newView = self.storyboard!.instantiateViewController(withIdentifier: "Home") as? HomeVC
+        Scanner = self.storyboard!.instantiateViewController(withIdentifier: "Payverify") as? Payverify
         
         if let captureDevice = captureDevice{
             do{
@@ -104,6 +106,11 @@ class ScanNGoViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         view.bringSubview(toFront: flashLight!)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        qrCodeFrameView?.frame = CGRect.zero
+        self.captureSession?.startRunning()
+    }
     public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -167,6 +174,20 @@ class ScanNGoViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         qrCodeFrameView!.frame = barCodeObject.bounds;
         if metadataObj.stringValue != nil{
             print(metadataObj.stringValue!)
+            let code = metadataObj.stringValue!
+            var amt = code.components(separatedBy: ",")
+            GlobalVariables.sharedManager.ckey = amt[0]
+            GlobalVariables.sharedManager.oid = amt[1]
+            print(GlobalVariables.sharedManager.ckey)
+            print(GlobalVariables.sharedManager.oid)
+            Scanner?.Scanned = { (barcode: String) in
+                _ = self.navigationController?.popViewController(animated: true)
+                print("Received following barcode: \(barcode)")
+            }
+            if let Scanner = self.Scanner{
+                self.navigationController?.pushViewController(Scanner, animated: true)
+            }
+            self.captureSession?.stopRunning()
         }
     }
 }

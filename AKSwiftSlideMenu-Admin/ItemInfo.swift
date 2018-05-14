@@ -26,7 +26,7 @@ class ItemInfo:UIViewController,UITextFieldDelegate{
     @IBOutlet weak var Quantity: UITextField!
     var userid:String = (Auth.auth().currentUser?.uid)!
     var editTextFieldToggle: Bool = false
-    // var username = abc.globalVariable.userName;
+    //var username = abc.globalVariable.userName;
     var ref : DatabaseReference!
     var flag = true
     var address: String = ""

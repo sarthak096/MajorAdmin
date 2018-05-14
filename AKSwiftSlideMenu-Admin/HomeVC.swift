@@ -17,6 +17,7 @@ class HomeVC:BaseViewController{
     public var appDone: ((String) -> ())?
     var pageImages: NSArray!
     var ref : DatabaseReference!
+    
     //Load the viewcontroller
     override func viewDidLoad() {
         ref =  Database.database().reference()
@@ -30,6 +31,15 @@ class HomeVC:BaseViewController{
         self.ref.child("Database").observeSingleEvent(of: .value, with: { (DataSnapshot) in
             GlobalVariables.sharedManager.orderscount = Int(DataSnapshot.childrenCount)
             print(GlobalVariables.sharedManager.orderscount)
+        })
+        let user = Auth.auth().currentUser
+        ref.child("Admin").child(user!.uid).observeSingleEvent(of: .value, with: { DataSnapshot in
+            if !DataSnapshot.exists(){
+                return
+            }
+            let userDict = DataSnapshot.value as! [String: Any]
+            let Id = userDict["EmpID"] as! String
+            GlobalVariables.sharedManager.Empname = Id
         })
     }
     

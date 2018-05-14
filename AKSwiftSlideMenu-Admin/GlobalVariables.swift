@@ -22,6 +22,10 @@ class GlobalVariables{
     public var itemCode : String  = ""
     public var pint : Int = 0
     public var qint : Int = 0
+    public var ckey : String = ""
+    public var oid : String = ""
+    public var Empname : String = ""
+    
     class var sharedManager: GlobalVariables{
         struct Static{
             static let instance = GlobalVariables()
